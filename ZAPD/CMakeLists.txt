@@ -375,7 +375,7 @@ if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU|Clang|AppleClang")
 		-pthread
 	)
 
-    if (CMAKE_SYSTEM_NAME MATCHES "Darwin|iOS")
+    if (CMAKE_SYSTEM_NAME MATCHES "Darwin|iOS|visionOS")
         target_link_options(${PROJECT_NAME} PUBLIC
             -pthread
         )
@@ -404,7 +404,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     	storm
     	PNG::PNG
     )
-elseif(CMAKE_SYSTEM_NAME MATCHES "Darwin|iOS")
+elseif(CMAKE_SYSTEM_NAME MATCHES "Darwin|iOS|visionOS")
 	set(THREADS_PREFER_PTHREAD_FLAG ON)
 	find_package(Threads REQUIRED)
 	set(ADDITIONAL_LIBRARY_DEPENDENCIES
